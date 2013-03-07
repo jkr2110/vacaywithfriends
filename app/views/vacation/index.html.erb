@@ -1,0 +1,11 @@
+
+
+<%= link_to "Start New Vacation", new_vacation_path, :class => "btn" %>
+
+
+<% for vacation in @vacation %>
+	<div class="vacation">
+		<h2><%= vacation.title %></h2>
+		<p><%= vacation.body %></p>
+	</div>
+<% end %>

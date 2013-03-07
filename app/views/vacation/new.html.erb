@@ -1,0 +1,36 @@
+<h1>Create a new vacation!</h1>
+
+
+<%= form_for @vacation do |f| %>
+
+	<% @vacation.errors.full_messages.each do |msg| %>
+	<p class="error"><%= msg%></p>
+
+<% end %>
+
+<p>
+
+	<%= f.label :title %>
+	<br/>
+	<%= f.text_field :title %>
+</p>
+
+<p>
+
+	<%= f.label :body %>
+	<br/>
+	<%= f.text_area :body, :style => "height: 100px;" %>
+</p>
+
+<h3>Beats</h3>
+<%= f.fields_for :beats do |beat_form| %>
+	<%= beat_form.file_field :picture %>
+<% end %>
+
+<p>
+	<%= link_to "Back", :back %>
+	<%= f.submit %>
+</p>
+
+
+<%- end %>

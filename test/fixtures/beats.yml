@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vacation_id: MyString
+  picture: MyString
+  comment: MyString
+
+two:
+  vacation_id: MyString
+  picture: MyString
+  comment: MyString
