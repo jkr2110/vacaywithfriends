@@ -1,0 +1,38 @@
+<%= form_for(@vacation) do |f| %>
+  <% if @vacation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vacation.errors.count, "error") %> prohibited this vacation from being saved:</h2>
+
+      <ul>
+      <% @vacation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+
+  <%= f.label :title %>
+  <br/>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+
+  <%= f.label :body %>
+  <br/>
+  <%= f.text_area :body, :style => "height: 100px;" %>
+</p>
+
+<h3>Beats</h3>
+<%= f.fields_for :beats do |beat_form| %>
+  <%= beat_form.file_field :picture %>
+<% end %>
+
+<p>
+  <%= link_to "Back", :back %>
+  <%= f.submit %>
+</p>
+
+<% end %>
