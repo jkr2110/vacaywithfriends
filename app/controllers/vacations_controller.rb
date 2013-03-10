@@ -1,4 +1,5 @@
 class VacationsController < ApplicationController
+  #before_filter :authenticate_user!, except: [:index, :show]
   # GET /vacations
   # GET /vacations.json
   def index
@@ -25,12 +26,12 @@ class VacationsController < ApplicationController
   # GET /vacations/new.json
   def new
     @vacation = Vacation.new
-    3.times { @vacation.beats.build }
+    3.times {@vacation.beats.build}
 
-    #respond_to do |format|
-      #format.html # new.html.erb
-      #format.json { render json: @vacation }
-    #end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @vacation }
+    end
   end
 
   # GET /vacations/1/edit
@@ -42,6 +43,7 @@ class VacationsController < ApplicationController
   # POST /vacations.json
   def create
     @vacation = Vacation.new(params[:vacation])
+
 
     respond_to do |format|
       if @vacation.save

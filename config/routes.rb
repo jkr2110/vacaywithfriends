@@ -2,9 +2,10 @@ Vacaywithfriends::Application.routes.draw do
   resources :vacations
 
 
-  devise_for :users
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :users
+
 
 
   # The priority is based upon order of creation:

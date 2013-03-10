@@ -1,21 +1,17 @@
 <h1>Vacations</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @vacations.each do |vacation| %>
-  <tr>
-    <td><%= link_to 'Show', vacation %></td>
-    <td><%= link_to 'Edit', edit_vacation_path(vacation) %></td>
-    <td><%= link_to 'Destroy', vacation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% for vacation in @vacations %>
+  <div class="vacation">
+    <h2><%= vacation.title %></h2>
+    <p><%= vacation.body %></p>
+    <% for beat in vacation.beats %>
+      <%= image_tag beat.picture %></p>
+    <% end %>
+  </div>
 <% end %>
-</table>
 
-<br />
+
 
 <%= link_to "Start New Vacation", new_vacation_path, :class => "btn" %>
+
+

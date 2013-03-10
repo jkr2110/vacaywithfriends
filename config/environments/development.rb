@@ -38,4 +38,7 @@ Vacaywithfriends::Application.configure do
   #defined default URL
   config.action_mailer.default_url_options = { :host => 'localhost:3000/' }
 
+  # gives Paperclip the path to ImageMagick
+   Paperclip.options[:command_path] = "/usr/local/bin/"
+
 end

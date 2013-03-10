@@ -19,16 +19,17 @@
 </p>
 
 <p>
-
   <%= f.label :body %>
   <br/>
   <%= f.text_area :body, :style => "height: 100px;" %>
 </p>
 
-<h3>Beats</h3>
-<%= f.fields_for :beats do |beat_form| %>
+
+<p>  
+  <%= f.fields_for :beats do |beat_form| %>
   <%= beat_form.file_field :picture %>
 <% end %>
+</p>
 
 <p>
   <%= link_to "Back", :back %>
