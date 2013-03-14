@@ -5,7 +5,7 @@
     <h2><%= vacation.title %></h2>
     <p><%= vacation.body %></p>
     <% for beat in vacation.beats %>
-      <%= image_tag beat.picture %></p>
+      <%= image_tag beat.picture(:medium) %></p>
     <% end %>
   </div>
 <% end %>

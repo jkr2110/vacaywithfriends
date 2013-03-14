@@ -1,10 +1,23 @@
 Vacaywithfriends::Application.routes.draw do
+  
+  resources :members
+
+
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
+
+  resources :groups
+
+
   resources :vacations
 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :users
+
 
 
 

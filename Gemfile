@@ -4,6 +4,8 @@ gem 'rails', '3.2.12'
 
 gem 'devise'
 
+gem 'omniauth-facebook'
+
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Bundle edge Rails instead:

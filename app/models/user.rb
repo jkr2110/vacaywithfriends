@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password
 
   validates_presence_of :username
+
+  belongs_to :groups
+  belongs_to :members
 end
