@@ -1,5 +1,5 @@
 class VacationsController < ApplicationController
-  #before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user! #, :except => [:show, :index]
   # GET /vacations
   # GET /vacations.json
   def index

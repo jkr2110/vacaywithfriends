@@ -2,6 +2,9 @@ Vacaywithfriends::Application.routes.draw do
   
   resources :members
 
+  resources :home
+  
+
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
