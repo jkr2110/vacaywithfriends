@@ -4,7 +4,11 @@ Vacaywithfriends::Application.routes.draw do
 
   resources :home
   
+  match 'groups/:id/new_group_user', to: 'groups#new_group_user', as: 'new_group_user'
 
+  #resources :groups do 
+    #resources :new_group_user
+  #end 
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

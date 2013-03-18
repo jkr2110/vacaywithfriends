@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
-  attr_accessible :email, :name, :password
+  attr_accessible :email, :name, :password, :groups_attributes
 
   validates_presence_of :username
 
-  belongs_to :groups
-  belongs_to :members
+  has_many :groups, :through => :members
+  has_many :members
+  #belongs_to :member, :foreign_key => "member_id"
+  accepts_nested_attributes_for :groups
 end

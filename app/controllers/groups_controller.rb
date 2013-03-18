@@ -25,12 +25,40 @@ class GroupsController < ApplicationController
   # GET /groups/new.json
   def new
     @group = Group.new
-    @group.users.build
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @group }
     end
+  end
+
+  def new_group_user
+    @group = Group.find(params[:id])
+    @user = User.new
+    # push the group id to the form using hidden field :group_id
+    #@group.users << @user
+    #@group.users.new
+
+    respond_to do |format|
+      format.html # new_group_user.html.erb
+      format.json { render json: @group }
+    end 
+  end 
+
+  def create_group_user
+    @group = Group.find(params[:group_id])
+    @user = User.new()
+    @group.users << @user
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User Group was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end 
+    end 
   end
 
   # GET /groups/1/edit
